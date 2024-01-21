@@ -3,6 +3,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { useToast } from '@/components/ui/use-toast';
+import { useGetProductsQuery } from '@/redux/api/apiSlice';
 import {
   setPriceRange,
   toggleState,
@@ -18,6 +19,8 @@ export default function Products() {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
+
+  // const { data, isLoading } = useGetProductsQuery(undefined);
 
   const { priceRange, status } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
